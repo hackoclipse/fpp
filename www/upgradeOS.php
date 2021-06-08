@@ -35,7 +35,7 @@ if (preg_match('/^https?:/', $_GET['os'])) {
     echo "==========================================================================\n";
     $baseFile = preg_replace('/.*\/([^\/]*)$/', '$1', $_GET['os']);
     echo "Downloading OS Image:\n";
-    $cmd = "curl -f --fail-early " . $_GET['os'] . " --output /home/fpp/media/upload/$baseFile 2>&1";
+    $cmd = "curl -f --fail-early '" . $_GET['os'] . "' --output /home/fpp/media/upload/$baseFile 2>&1";
     system($cmd);
     $_GET['os'] = $baseFile;
 }
